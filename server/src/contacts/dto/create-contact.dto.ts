@@ -13,11 +13,11 @@ export class CreateContactDto {
   @MaxLength(255)
   name: string;
 
-  @IsEmail()
+  @IsEmail({}, { message: 'The email provided is not valid.' })
   @IsNotEmpty()
   email: string;
 
-  @IsPhoneNumber()
+  @IsPhoneNumber('CA')
   @IsOptional()
   phone: string;
 }

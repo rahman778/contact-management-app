@@ -12,6 +12,6 @@ export class ContactController extends BaseController<
   UpdateContactDto
 > {
   constructor(private readonly contactService: ContactService) {
-    super(contactService);
+    super(contactService, CreateContactDto, UpdateContactDto);
   }
 }

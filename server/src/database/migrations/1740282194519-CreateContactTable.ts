@@ -6,7 +6,7 @@ export class CreateContactTable1740282194519 implements MigrationInterface {
         CREATE TABLE contacts (
             "id" SERIAL PRIMARY KEY,
             "name" VARCHAR(255) NOT NULL,
-            "email" VARCHAR(255) NOT NULL,
+            "email" VARCHAR(255) NOT NULL UNIQUE,
             "phone" VARCHAR(255),
             "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
