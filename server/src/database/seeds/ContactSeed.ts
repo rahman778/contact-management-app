@@ -8,17 +8,17 @@ export async function seedContacts(dataSource: DataSource) {
     {
       name: 'John Doe',
       email: 'john.doe@example.com',
-      phone: '123-456-7890',
+      phone: '+1 234567890',
     },
     {
       name: 'Jane Smith',
       email: 'jane.smith@example.com',
-      phone: '987-654-3210',
+      phone: '+61 76543210',
     },
     {
       name: 'Alice Johnson',
       email: 'alice.johnson@example.com',
-      phone: '555-555-5555',
+      phone: '+94 719900373',
     },
   ];
 

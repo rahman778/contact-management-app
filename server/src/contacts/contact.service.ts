@@ -12,4 +12,13 @@ export class ContactService extends BaseService<Contact> {
   ) {
     super(contactRepository);
   }
+
+  async searchContacts(query: string, sortField: string): Promise<Contact[]> {
+    return this.contactRepository
+      .createQueryBuilder('contact')
+      .where('contact.name ILIKE :query', { query: `%${query}%` })
+      .orWhere('contact.email ILIKE :query', { query: `%${query}%` })
+      .orderBy(`contact.${sortField}`, 'ASC')
+      .getMany();
+  }
 }

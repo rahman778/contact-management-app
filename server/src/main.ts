@@ -13,6 +13,11 @@ async function bootstrap() {
       errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
     }),
   );
+
+  app.enableCors({
+    origin: process.env.CLIENT_URL,
+  });
+
   await app.listen(process.env.PORT ?? 3000);
 }
 

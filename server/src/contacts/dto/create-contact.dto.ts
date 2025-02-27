@@ -3,8 +3,8 @@ import {
   IsEmail,
   MaxLength,
   IsOptional,
-  IsPhoneNumber,
   IsNotEmpty,
+  Matches,
 } from 'class-validator';
 
 export class CreateContactDto {
@@ -17,7 +17,10 @@ export class CreateContactDto {
   @IsNotEmpty()
   email: string;
 
-  @IsPhoneNumber('CA')
+  @IsString()
+  @Matches(/^\+?(\d\s?){10,15}$/, {
+    message: 'Please enter a valid phone number (10-15 digits).',
+  })
   @IsOptional()
   phone: string;
 }

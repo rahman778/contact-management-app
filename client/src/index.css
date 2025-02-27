@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button {
+    @apply inline-flex cursor-pointer items-center justify-center rounded-sm border border-transparent py-2 px-4  font-medium;
+  }
+
+  .primary-btn {
+    @apply text-gray-100 bg-primary hover:bg-primary/90 disabled:bg-gray-300 disabled:text-gray-500;
+  }
+
+  .primary-outline-btn {
+    @apply text-gray-700 bg-transparent hover:bg-primary border border-primary hover:text-gray-100;
+  }
+
+  .input {
+    @apply py-3.5 px-4 text-md  text-gray-700 bg-transparent rounded-sm  w-full placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/90 focus:border-transparent;
+  }
+
+  .link {
+    @apply text-sm text-primary;
+  }
+
+  .label {
+    @apply text-gray-600 text-md;
+  }
+
+  .hover-transition {
+    @apply transform transition duration-300;
+  }
+
+  .ease-in-out-transition {
+    @apply transform transition-all duration-300 ease-in-out;
+  }
+
+  .click-transition {
+    @apply transform transition duration-300 cursor-pointer active:scale-95;
+  }
+
+  .required-marker {
+    @apply after:content-['*'] after:ml-0.5 after:text-red-500;
+  }
+}
