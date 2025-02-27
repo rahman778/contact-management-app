@@ -57,8 +57,8 @@ const ContactDialog = ({
         closeTimeoutMS={200}
       >
         <div className="relative">
-          <h2 className="text-2xl text-[#333] font-medium">
-            {contactID ? "Edit Contact" : "Add Contact"}
+          <h2 className="text-xl text-[#333] font-medium">
+            {contactID ? "Update Contact" : "Add Contact"}
           </h2>
           <button className="absolute top-0 right-0" onClick={closeModal}>
             <XMarkIcon className="text-stone-700 h-5 w-5 stroke-[3] hover:text-stone-900" />
@@ -101,7 +101,10 @@ const ContactDialog = ({
                 {...register("phone", {
                   required: "Please enter mobile number",
                   validate: (value) => {
-                    return isValidPhoneNumber(value) || "Please enter a valid phone number";
+                    return (
+                      isValidPhoneNumber(value) ||
+                      "Please enter a valid phone number"
+                    );
                   },
                 })}
                 control={control}

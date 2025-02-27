@@ -14,11 +14,11 @@
   }
 
   .primary-outline-btn {
-    @apply text-gray-700 bg-transparent hover:bg-primary border border-primary hover:text-gray-100;
+    @apply text-gray-700 bg-transparent hover:bg-gray-400 border border-primary hover:text-gray-100;
   }
 
   .input {
-    @apply py-3.5 px-4 text-md  text-gray-700 bg-transparent rounded-sm  w-full placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/90 focus:border-transparent;
+    @apply py-3.5 px-4 text-md border-[#B0B0B0]  text-gray-700 bg-transparent rounded-sm  w-full placeholder-[#9E9E9E] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/90 focus:border-transparent;
   }
 
   .link {

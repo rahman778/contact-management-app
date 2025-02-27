@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#019875",
+        primary: "#5B6AD0",
         secondary: "#ecc94b",
       },
       borderRadius: {

@@ -17,7 +17,7 @@ export const searchContacts = (query, sortField) => {
   return apiClient.get(`/${URL}/search`, {
     params: {
       query,
-      sortField
+      sortField,
     },
   });
 };

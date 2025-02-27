@@ -25,7 +25,7 @@ const SearchInput = ({ searchValue }) => {
     setSearchQuery("");
 
     const newSearchParams = new URLSearchParams(searchParams);
-    newSearchParams.delete("query"); // Remove the "query" parameter
+    newSearchParams.delete("query"); 
 
     setSearchParams(newSearchParams);
   };
@@ -33,10 +33,10 @@ const SearchInput = ({ searchValue }) => {
     <form onSubmit={handleFormSubmit} className="flex items-center">
       <div className="relative">
         <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-          <MagnifyingGlassIcon className="text-amber-500 h-5 w-5" />
+          <MagnifyingGlassIcon className="text-[#757D8A] h-5 w-5" />
         </span>
         <input
-          className="w-full text-black text-md py-2 pl-12 pr-6 bg-white  focus:ring-0 focus:border-inherit rounded-sm"
+          className="w-full border-[#B0B0B0] text-black text-md py-2 pl-12 pr-6 bg-white  focus:ring-0 focus:border-primary rounded-sm placeholder-[#9E9E9E]"
           type="text"
           value={searchQuery}
           placeholder="Name or Email"
@@ -48,19 +48,18 @@ const SearchInput = ({ searchValue }) => {
             className="absolute inset-y-0 right-1.5 flex items-center cursor-pointer"
             onClick={handleQueryReset}
           >
-            <XMarkIcon className="text-stone-300 h-4 w-4 stroke-[3] hover:text-stone-400" />
+            <XMarkIcon className="text-stone-400 h-4 w-4 stroke-[3] hover:text-stone-500" />
           </span>
         )}
-        
       </div>
       <div className="ml-2">
-          <button
-            type="submit"
-            className="px-8 py-2 button primary-btn"
-          >
-            <span className="text-white">Search</span>
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="px-4 py-2 button bg-gray-300 hover:bg-gray-400 hover-transition border-gray-400"
+        >
+          <span className="text-[#404D61] font-normal text-md">Search</span>
+        </button>
+      </div>
     </form>
   );
 };

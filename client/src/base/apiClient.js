@@ -9,16 +9,12 @@ const apiClient = axios.create({
 apiClient.interceptors.response.use(
   (response) => response, // Return the response if successful
   (error) => {
-    console.log('error :>> ', error);
     // Handle validation errors
     if (error.response && error.response.status === 400) {
       const errorData = error.response.data;
 
       // If validation errors are present
-      if (
-        Array.isArray(errorData.message)
-      ) {
-        console.log('runs :>> ');
+      if (Array.isArray(errorData.message)) {
         errorData.message.forEach((error) => {
           toast.error(`${error.property}: ${error.errors?.join(", ")}`);
         });
