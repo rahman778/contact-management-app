@@ -1,14 +1,23 @@
-import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common'
-import { LoggerService } from '../logger/custom.logger'
-import { HttpArgumentsHost } from '@nestjs/common/interfaces/features/arguments-host.interface'
-import { Response } from 'express'
-import { QueryFailedError } from 'typeorm'
+import {
+  ArgumentsHost,
+  Catch,
+  ExceptionFilter,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
+import { LoggerService } from '../logger/custom.logger';
+import { HttpArgumentsHost } from '@nestjs/common/interfaces/features/arguments-host.interface';
+import { Response } from 'express';
+import { QueryFailedError } from 'typeorm';
 
 @Catch()
 export class AllExceptionFilter implements ExceptionFilter {
   constructor(private logger: LoggerService) {}
 
-  private static handleResponse(response: Response, exception: HttpException | QueryFailedError | Error): void {
+  private static handleResponse(
+    response: Response,
+    exception: HttpException | QueryFailedError | Error,
+  ): void {
     let responseBody: any = { message: 'Internal server error' };
     let statusCode = HttpStatus.INTERNAL_SERVER_ERROR;
 
@@ -17,7 +26,10 @@ export class AllExceptionFilter implements ExceptionFilter {
       statusCode = exception.getStatus();
 
       // Check if the response contains validation errors
-      if (Array.isArray(exceptionResponse['message']) && exceptionResponse['message'][0]?.constraints) {
+      if (
+        Array.isArray(exceptionResponse['message']) &&
+        exceptionResponse['message'][0]?.constraints
+      ) {
         responseBody = {
           statusCode,
           error: exceptionResponse['error'] || 'Validation Error',
@@ -58,7 +70,9 @@ export class AllExceptionFilter implements ExceptionFilter {
     AllExceptionFilter.handleResponse(response, exception);
   }
 
-  private handleMessage(exception: HttpException | QueryFailedError | Error): void {
+  private handleMessage(
+    exception: HttpException | QueryFailedError | Error,
+  ): void {
     let message = 'Internal Server Error';
 
     if (exception instanceof HttpException) {

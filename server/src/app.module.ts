@@ -16,7 +16,6 @@ import { LoggerModule } from './logger/logger.module';
     LoggerModule,
     DatabaseModule,
     ContactModule,
-    // Add feature modules here
   ],
   controllers: [],
   providers: [

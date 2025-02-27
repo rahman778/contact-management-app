@@ -20,9 +20,6 @@ export class ContactController extends BaseController<
     @Query('query') query: string,
     @Query('sortField') sortField: string,
   ): Promise<Contact[]> {
-    return this.contactService.searchContacts(
-      query,
-      sortField,
-    );
+    return this.contactService.searchContacts(query, sortField);
   }
 }

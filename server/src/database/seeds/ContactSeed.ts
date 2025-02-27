@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-import { Contact } from '../../contacts/contact.entity'; // Adjust the path to your entity
+import { Contact } from '../../contacts/contact.entity';
 
 export async function seedContacts(dataSource: DataSource) {
   const contactRepository = dataSource.getRepository(Contact);

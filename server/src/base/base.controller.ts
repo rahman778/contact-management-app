@@ -38,7 +38,6 @@ export abstract class BaseController<
       throw new BadRequestException(errors);
     }
 
-    // Proceed to save the validated data
     const item = await this.service.store(createDto);
     return item;
   }
