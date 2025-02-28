@@ -99,12 +99,19 @@ const ContactDialog = ({
             <div>
               <PhoneInput
                 {...register("phone", {
-                  required: "Please enter mobile number",
+                  required: false,
                   validate: (value) => {
-                    return (
-                      isValidPhoneNumber(value) ||
-                      "Please enter a valid phone number"
-                    );
+                    const spaceIndex = value.indexOf(" ");
+                    if (
+                      spaceIndex !== -1 &&
+                      value.slice(spaceIndex + 1).trim()
+                    ) {
+                      return (
+                        isValidPhoneNumber(value) ||
+                        "Please enter a valid phone number"
+                      );
+                    }
+                    return true; // Skip validation if there is no value after the country code
                   },
                 })}
                 control={control}

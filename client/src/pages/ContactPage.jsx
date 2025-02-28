@@ -119,8 +119,12 @@ const ContactPage = () => {
   };
 
   const onSubmit = async (values) => {
+    const spaceIndex = values.phone.indexOf(" "); // check if there value after the country code
+    const phone = spaceIndex !== -1 ? values.phone : ""; // if no value after country code, set phone to empty string
+
     let formValues = {
       ...values,
+      phone,
     };
 
     try {
